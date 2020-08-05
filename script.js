@@ -16,21 +16,17 @@ window.addEventListener("load", function(){
       event.preventDefault();
 
       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
-         alert("All fields are required!");
-            
-         }
+         alert("All fields are required!");      
+      }
 
       if (!isNaN(pilotName.value) || !isNaN(copilotName.value) || isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
          alert("Invalid entry in field!");
       }
 
       document.getElementById("pilotStatus").innerHTML = "Pilot " + pilotName.value + " is ready";
-      //pilotStatus.innerHTML = pilotName + " is ready";
       document.getElementById("copilotStatus").innerHTML = "Copilot " + copilotName.value + " is ready";
-      //copilotStatus.innerHTML = copilotName + " is ready";
 
       if (fuelLevel.value < 10000){
-         console.log("fuel low");
          faultyItems.setAttribute("style", "visibility: visible");
          fuelStatus.innerHTML = "Not enough fuel for the journey!";
          launchStatus.innerHTML = "Shuttle not ready for launch.";
@@ -38,14 +34,12 @@ window.addEventListener("load", function(){
       }
 
       if (fuelLevel.value >= 10000){
-         console.log("good to go");
          faultyItems.setAttribute("style", "visibility: visible");
          launchStatus.innerHTML = "Shuttle is ready for launch";
          launchStatus.setAttribute("style", "color: green");
       }
 
       if (cargoMass.value > 10000){
-         console.log("fuel low");
          faultyItems.setAttribute("style", "visibility: visible");
          cargoStatus.innerHTML = "There is too much mass for take-off!";
          launchStatus.innerHTML = "Shuttle not ready for launch.";
@@ -53,7 +47,6 @@ window.addEventListener("load", function(){
       }
 
       if (cargoMass.value <= 10000){
-         console.log("good to go");
          faultyItems.setAttribute("style", "visibility: visible");
          launchStatus.innerHTML = "Shuttle is ready for launch";
          launchStatus.setAttribute("style", "color: green");
